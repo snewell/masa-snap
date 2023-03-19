@@ -29,3 +29,28 @@ If a description isn't provided, data from stdin will be used.
 
         Goodbye, Masahiro.
 
+It also supports the layout section:
+
+.. code-block::
+
+    $ ./masa-snap -n "masa" -s "a sample snap" -f '/etc/hosts:$SNAP_DATA/etc/hosts' -b '/etc/apache/hosts.d:$SNAP/etc/apache/hosts.d' <<EOF
+    This is a longer description.
+    It can be multiple lines.
+    Hello, Masahiro.
+
+    Goodbye, Masahiro.
+    EOF
+    name: masa
+    version: 1.0.0
+    summary: a sample snap
+    description: |
+        This is a longer description.
+        It can be multiple lines.
+        Hello, Masahiro.
+
+        Goodbye, Masahiro.
+    layout:
+        /etc/apache/hosts.d:
+            bind: $SNAP/etc/apache/hosts.d
+        /etc/hosts:
+            bind-file: $SNAP_DATA/etc/hosts
