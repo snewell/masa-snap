@@ -39,6 +39,9 @@ func doEdit(*cobra.Command, []string) error {
 
 	edits := []editPair{
 		editPair{first: &name, second: &snap.Name},
+		editPair{first: &version, second: &snap.Version},
+		editPair{first: &summary, second: &snap.Summary},
+		editPair{first: &description, second: &snap.Description},
 	}
 
 	for i := range edits {
